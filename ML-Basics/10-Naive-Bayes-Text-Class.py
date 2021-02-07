@@ -1,0 +1,32 @@
+import numpy as np
+from matplotlib import pyplot as plt
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+
+categories = ['alt.atheism','soc.religion.christian','comp.graphics','sci.med']
+
+trainingData = fetch_20newsgroups(subset='train', categories=categories, shuffle=True, random_state=42)
+
+# print("\n".join(trainingData.data[1].split("\n")[:10]))
+# print("Target is:", trainingData.target_names[trainingData.target[1]])
+
+# Count the word occurances
+countVectorizer = CountVectorizer()
+xTrainCounts = countVectorizer.fit_transform(trainingData.data)
+
+# Transform the word occurance into tfidf
+tfidfTransformer = TfidfTransformer()
+xTrainTfidf = tfidfTransformer.fit_transform(xTrainCounts)
+
+model = MultinomialNB().fit(xTrainTfidf, trainingData.target)
+
+new = ['This has nothing to do with church or religion', 'Software engineering is getting hotter and hotter nowadays']
+xNewCounts = countVectorizer.transform(new)
+xNewTfidf = tfidfTransformer.transform(xNewCounts)
+
+predicted = model.predict(xNewTfidf)
+
+for doc, category in zip(new,predicted):
+	print('%r ==> [[ %s ]]' % (doc, trainingData.target_names[category]))
