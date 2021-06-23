@@ -11,3 +11,5 @@
 - [Contrash Stretching](https://nbviewer.jupyter.org/github/MizanurRahmann/Machine-Learning-Concepts/blob/master/Image-Processing-Lab-Work/TASK-2-Contrast-Stretching.ipynb)
 - [Clipping](https://nbviewer.jupyter.org/github/MizanurRahmann/Machine-Learning-Concepts/blob/master/Image-Processing-Lab-Work/TASK-3-Clipping.ipynb)
 - [Histogram Equalization](https://nbviewer.jupyter.org/github/MizanurRahmann/Machine-Learning-Concepts/blob/master/Image-Processing-Lab-Work/TASK-4-Histogram-Equalization.ipynb)
+
+- [Entropy of input & compressed images](https://nbviewer.jupyter.org/github/MizanurRahmann/Machine-Learning-Concepts/blob/master/Image-Processing-Lab-Work/TASK-5%20Entropy-of-input-image-and-compressed-image.ipynb)
